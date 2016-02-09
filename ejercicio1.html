@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Ejercicio JS</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <form name="formu">
+            <labe>Nombre: </labe><input type="text" name="usuario" placeholder="Nombre"><br />
+            <input type="button" name="enviar" value="Enviar">
+        </form>
+        <p id="solucion"></p>
+    </body>
+    <script type="text/javascript">
+        function estilo(){
+            var sol = document.getElementById("solucion");
+            var s = "hola que ase de algo la algo";
+            // console.log(s.replace(/(\b[a-zA-ZñÑ]+)/g,function(n){if(n!='de'&n!='la'){return n.charAt(0).toUpperCase()+n.slice(1);}else{return n;}}));
+            var nombre = document.formu.usuario.value;
+            console.log(nombre);
+            sol.innerHTML = nombre.replace(/(\b[a-zA-ZñÑáéíóúÁÉÍÓÚ]+)/g,function(n){
+                if(!(n=='de' | n=='la' | n=='del')){
+                    return n.charAt(0).toUpperCase() + n.slice(1);
+                }else{
+                    return n;
+                }
+            } );
+        }
+        
+        window.onload = function (){
+            document.formu.enviar.addEventListener('click',estilo);
+        }
+    </script>
+</html>
